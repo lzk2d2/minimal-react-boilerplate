@@ -85,19 +85,26 @@ babel/preset-react: configuration to transfort the React's JSX syntax to vanilla
 npm install --save-dev @babel/preset-react
 
 12.
+babel/plugin-proposal-class-properties: this plugin transforms static class properties as well as properties declared with the property initializer syntax
+npm install --save-dev @babel/plugin-proposal-class-properties
+
+13.
 babel configuration: .babelrc
 {
   "presets": [
     "@babel/preset-env",
     "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
   ]
 }
 
-13.
+14.
 react+react-dom: to use react stuff...
 npm install --save react react-dom
 
-14.
+15.
 src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -109,11 +116,10 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
-15.
+16.
 react-hot-loader: prohibits reloading the entire page, once the app was changed
 npm install --save-dev react-hot-loader
 
-16.
 webpack.config.js
 const webpack = require('webpack');
 module.exports = {
@@ -127,5 +133,9 @@ module.exports = {
   }
 }
 
-16.
+src/index.js
+...
+module.hot.accept();
+
+17.
 npm start
